@@ -48,6 +48,10 @@ exports.router =  (function () {
 
     // Redirections
 
+    apiRouter.get('/github', function (req, res) {
+        res.redirect('https://github.com/Sorway/Hikings');
+    });
+
     apiRouter.get('/tiktok', function (req, res) {
         res.redirect('https://www.tiktok.com/@jonathan.gp26');
     });

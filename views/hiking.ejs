@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GFM36HGBE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4GFM36HGBE');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Randonnées - <%= hiking.name %></title>
+
+        <!-- Embed -->
+        <meta content="Randonnées" property="og:title"/>
+        <meta content="Découvrez les plus beaux paysages de randonnées en France." property="og:description"/>
+        <meta content="https://hikings.jonathan-gp.fr/" property="og:url"/>
+        <meta content="https://hikings.jonathan-gp.fr/images/pp.jpg" property="og:image"/>
+        <meta content="#01a3a4" data-react-helmet="true" name="theme-color"/>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/hikings.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+        <link rel="icon" type="image/png" href="/icons/logo.ico">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="sticky">
+            <div class="nav-content">
+                <a class="logo">Randonnées</a>
+
+                <label for="check" class="checkbox">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <input type="checkbox" name="check" id="check">
+
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/about">À Propos</a></li>
+                    <li><a href="/hikings" class="active">Randonnées</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Loading -->
+        <div class="loading-screen">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Hiking Section -->
+        <section class="hikings">
+            <h1 class="title"><%= hiking.name %></h1>
+
+            <div class="hiking-container">
+                <% if (hiking.difficulty || hiking.duration || hiking.distance || hiking.elevation_gain || hiking.negative_gradient || hiking.high_point || hiking.low_point) { %>
+                    <div class="hiking-left">
+                        <div class="description">
+                            <p><%= hiking.description %></p>
+                        </div>
+
+                        <div class="hiking-data">
+                            <% if (hiking.difficulty) { %>
+                                <p><strong>Difficulté:</strong> <span id="<%= hiking.difficulty %>"><%= hiking.difficulty %></span></p>
+                            <% } %>
+                            <% if (hiking.duration) { %>
+                                <p><strong>Durée:</strong> <%= hiking.duration %></p>
+                            <% } %>
+                            <% if (hiking.distance) { %>
+                                <p><strong>Distance:</strong> <%= hiking.distance %></p>
+                            <% } %>
+                            <% if (hiking.elevation_gain) { %>
+                                <p><strong>Dénivelé positif:</strong> <%= hiking.elevation_gain %></p>
+                            <% } %>
+                            <% if (hiking.negative_gradient) { %>
+                                <p><strong>Dénivelé négatif:</strong> <%= hiking.negative_gradient %></p>
+                            <% } %>
+                            <% if (hiking.high_point) { %>
+                                <p><strong>Point haut:</strong> <%= hiking.high_point %></p>
+                            <% } %>
+                            <% if (hiking.low_point) { %>
+                                <p><strong>Point bas:</strong> <%= hiking.low_point %></p>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="hiking-right">
+                        <div id="map"></div>
+                    </div>
+                <% } else { %>
+                    <div class="hiking-description-only">
+                        <div class="description">
+                            <p><%= hiking.description %></p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+
+            <h1 class="section-title">Photos</h1>
+
+            <div class="container">
+                <div class="gallery">
+                    <% images.forEach(image => { %>
+                        <div class="gallery-item">
+                            <img src="<%= imagesPath %>/<%= image %>" alt="<%= name %>" class="gallery-image">
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+
+            <!-- Modal pour afficher l'image en plein écran -->
+            <div class="image-modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="modal-img">
+            </div>
+        </section>
+
+        <%- include('partials/footer') %>
+
+        <!-- Importation des scripts -->
+        <script src="/javascripts/loader.js" crossorigin="anonymous"></script>
+        <script src="/javascripts/map.js" crossorigin="anonymous" data-gpx-url="<%= map %>"></script>
+        <script src="/javascripts/modal.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/629c3eb82b.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.5.0/gpx.min.js"></script>
+    </body>
+</html>

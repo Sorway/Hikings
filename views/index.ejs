@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GFM36HGBE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4GFM36HGBE');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Randonnées - Accueil</title>
+
+        <!-- Embed -->
+        <meta content="Randonnées" property="og:title"/>
+        <meta content="Découvrez les plus beaux paysages de randonnées en France." property="og:description"/>
+        <meta content="https://hikings.jonathan-gp.fr/" property="og:url"/>
+        <meta content="https://hikings.jonathan-gp.fr/images/pp.jpg" property="og:image"/>
+        <meta content="#01a3a4" data-react-helmet="true" name="theme-color"/>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="icon" type="image/png" href="/icons/logo.ico">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-content">
+                <a class="logo">Randonnées</a>
+
+                <label for="check" class="checkbox">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <input type="checkbox" name="check" id="check">
+
+                <ul>
+                    <li><a href="/" class="active">Accueil</a></li>
+                    <li><a href="/about">À Propos</a></li>
+                    <li><a href="/hikings">Randonnées</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="home">
+            <!-- Carousel des images -->
+            <div class="slider">
+                <% const treks = [
+                    {
+                        title: "Lac d'Allos",
+                        subtitle: "Parc national du Mercantour",
+                        description: "Le lac d'Allos, situé dans le parc national du Mercantour, dans les Alpes-de-Haute-Provence (France), est un joyau naturel niché à 2 220 mètres d'altitude, ce qui en fait le plus grand lac naturel d'altitude en Europe. Ce lac glaciaire, entouré de montagnes majestueuses et de forêts de mélèzes, offre un panorama exceptionnel et une atmosphère sereine.",
+                        image: "/images/carousel/lac-allos.jpg",
+                        url: "https://hikings.jonathan-gp.fr/hiking/lac-allos"
+                    },
+                    {
+                        title: "Monaco",
+                        subtitle: "Tête de chien",
+                        description: "La Tête de Chien est un promontoire rocheux emblématique situé à proximité de Monaco, dans la commune de La Turbie, dans les Alpes-Maritimes, en France. Ce sommet culmine à 550 mètres d'altitude, offrant un panorama exceptionnel sur la Principauté de Monaco, la mer Méditerranée et les environs. Son nom évocateur provient de sa forme particulière, qui rappelle la tête d'un chien lorsqu'on l'observe depuis certains angles.",
+                        image: "/images/carousel/monaco.webp",
+                        url: "https://hikings.jonathan-gp.fr/hiking/monaco"
+                    },
+                    {
+                        title: "Lac de Sainte-Croix",
+                        subtitle: "Gorges du Verdon",
+                        description: "Le lac de Sainte-Croix est une magnifique étendue d'eau artificielle située dans le département du Var, en Provence-Alpes-Côte d'Azur, au cœur des Gorges du Verdon. Créé en 1973 grâce à la construction du barrage de Sainte-Croix sur le Verdon, ce lac est aujourd'hui un site incontournable pour les amateurs de paysages naturels et d'activités de plein air.",
+                        image: "/images/carousel/lac-sainte-croix.webp",
+                        url: "https://hikings.jonathan-gp.fr/hiking/col-de-plein-voir"
+                    },
+                    {
+                        title: "Calanque d'En-Vau",
+                        subtitle: "Parc national des Calanques",
+                        description: "La calanque d’En-Vau est l’une des plus belles et emblématiques calanques du parc national des Calanques, situé entre Marseille et Cassis, dans le sud de la France. Elle se distingue par ses hautes falaises de calcaire blanc plongeant dans une eau turquoise et cristalline, offrant un spectacle naturel à couper le souffle.",
+                        image: "/images/carousel/callanques-en-vau.webp",
+                        url: "https://hikings.jonathan-gp.fr/hiking/calanques-en-vau"
+                    }
+                ]; %>
+
+                <% treks.forEach((trek, index) => { %>
+                    <img class="images-slide <%= index === 0 ? 'active' : '' %>" src="<%= trek.image %>" alt="<%= trek.title %>">
+                <% }) %>
+            </div>
+
+            <!-- Contenu dynamique -->
+            <% treks.forEach((trek, index) => { %>
+                <div class="content <%= index === 0 ? 'active' : '' %>">
+                    <h1><%= trek.title %><br><span><%= trek.subtitle %></span></h1>
+                    <p><%= trek.description %></p>
+                    <a href="<%= trek.url %>">Découvrir</a>
+                </div>
+            <% }) %>
+
+            <!-- Icônes médias sociaux -->
+            <div class="media-icons">
+                <a href="/tiktok" target="_blank"><i class="fab fa-tiktok" aria-label="TikTok"></i></a>
+            </div>
+
+            <!-- Navigation du slider -->
+            <div class="slider-navigation">
+                <% treks.forEach((_, index) => { %>
+                    <div class="nav-btn <%= index === 0 ? 'active' : '' %>"></div>
+                <% }) %>
+            </div>
+        </section>
+
+        <!-- Importation des scripts -->
+        <script src="https://kit.fontawesome.com/629c3eb82b.js" crossorigin="anonymous"></script>
+        <script src="/javascripts/navigation.js" crossorigin="anonymous"></script>
+        <script src="/javascripts/slider.js" crossorigin="anonymous"></script>
+    </body>
+</html>

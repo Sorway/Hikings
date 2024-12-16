@@ -5,7 +5,8 @@
     --font: "Poppins";
     --background-color: white;
     --secondary-background-color: #1c1c1c;
-    --text-color: white;
+    --text-color: black;
+    --white-text-color: white;
     --primary-color: #0984e3;
     --secondary-color: #01a3a4;
 }
@@ -57,7 +58,7 @@ section:not(:first-child) {
     position: relative;
     font-size: 26px;
     padding-bottom: 20px;
-    color: black;
+    color: var(--text-color);
 }
 
 .title::before {
@@ -106,7 +107,7 @@ nav .nav-content {
 }
 
 nav .logo {
-    color: var(--text-color);
+    color: var(--white-text-color);
     font-size: 1.5em;
     font-weight: 700;
     text-transform: uppercase;
@@ -128,6 +129,7 @@ nav input {
 nav .checkbox i {
     font-size: 2rem;
     cursor: pointer;
+    color: white;
 }
 
 nav ul {
@@ -150,6 +152,7 @@ nav ul li a {
     transition: 0.3s;
     display: block;
     font-size: 14px;
+    color: var(--white-text-color);
 }
 
 nav ul li a:hover,
@@ -191,6 +194,10 @@ footer .social-icons li a
     transition: 0.5s;
 }
 
+footer .social-icons li i {
+    color: var(--white-text-color);
+}
+
 footer .social-icons li a:hover {
     transform: translateY(-10px);
 }
@@ -217,6 +224,7 @@ footer p {
     margin-top: 15px;
     margin-bottom: 10px;
     font-size: 1em;
+    color: var(--white-text-color);
 }
 
 footer .citation {

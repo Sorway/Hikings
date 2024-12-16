@@ -37,7 +37,7 @@
 }
 
 .about p {
-    color: black;
+    color: var(--text-color);
     font-size: 15px;
     line-height: 28px;
     letter-spacing: 1px;
@@ -50,7 +50,7 @@
 }
 
 .about .content .citation {
-    color: black;
+    color: var(--text-color);
     font-weight: bold;
     font-style: italic;
     font-size: 18px;

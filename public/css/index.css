@@ -26,7 +26,6 @@ body {
 
 .home .content {
     z-index: 888;
-    color: white;
     width: 70%;
     margin-top: 50px;
     display: none;
@@ -49,10 +48,12 @@ body {
 .home .content h1 span {
     font-size: 1.2em;
     font-weight: 600;
+    color: var(--white-text-color);
 }
 
 .home .content p {
     margin-bottom: 65px;
+    color: var(--white-text-color);
 }
 
 .home .content a {
@@ -78,6 +79,10 @@ body {
     display: flex;
     flex-direction: column;
     transition: 0.5s ease;
+}
+
+.home .media-icons i {
+    color: white;
 }
 
 .home .media-icons a {

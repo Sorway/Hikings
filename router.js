@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const { getHikings } = require('./scripts/hikings');
+const { getHikings } = require('./public/javascripts/hikings');
+const { sendEmail } = require("./public/javascripts/mail");
+const {response} = require("express");
 
 exports.router =  (function () {
     const apiRouter = express.Router();
@@ -12,6 +14,10 @@ exports.router =  (function () {
 
     apiRouter.get('/about', function (req, res) {
         res.status(200).render('about');
+    });
+
+    apiRouter.get('/contact', function (req, res) {
+        res.status(200).render('contact');
     });
 
     apiRouter.get('/hikings', function (req, res) {
@@ -45,6 +51,18 @@ exports.router =  (function () {
                 });
         });
     });
+
+    // Mail sender
+
+    apiRouter.post('/send-email', (req, res) => {
+        const { name, subject, email, message } = req.body;
+        const sender = `${name} <${email}>`
+
+        sendEmail({ sender, subject, message }).then(result => {
+            res.redirect('/contact');
+        });
+    });
+
 
     // Redirections
 

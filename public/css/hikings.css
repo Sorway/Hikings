@@ -38,7 +38,7 @@
 }
 
 .hiking-data p, .hiking-data strong {
-    color: black;
+    color: var(--text-color);
 }
 
 /* Description seule */
@@ -91,13 +91,15 @@
     color: black;
 }
 
-
 .leaflet-control-zoom-in span,
 .leaflet-control-zoom-out span {
     color: black;
 }
 
 /* Photos Section */
+.hikings .photos {
+    margin-top: 20px;
+}
 
 .hikings .container {
     display: none;

@@ -1,4 +1,4 @@
-const database = require('../database/database').connection;
+const database = require('../../database/database').connection;
 const cron = require('node-cron');
 
 let hikingsData = []

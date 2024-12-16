@@ -1,12 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const moment = require('moment-timezone');
-const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 const router = require('./router').router;
 
 const server = express();
-server.use(bodyParser.urlencoded({ extended: true }));
+server.use(express.urlencoded({ extended: true }));
+server.use(express.json());
 server.set('view engine', 'ejs');
 
 morgan.token('paris-hour', () => {

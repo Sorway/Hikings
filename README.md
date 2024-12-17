@@ -67,10 +67,10 @@ Ce projet est à la fois un carnet de bord personnel et une source d'inspiration
    DB_PASSWORD=votre_mot_de_passe
    DB_NAME=hikings
 
-    MAIL_HOST=""
-    MAIL_PORT=""
-    MAIL_USER=""
-    MAIL_PASSWORD=""
+   MAIL_HOST=""
+   MAIL_PORT=""
+   MAIL_USER=""
+   MAIL_PASSWORD=""
    ```
 
 4. Lancez le projet :

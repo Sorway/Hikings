@@ -61,9 +61,22 @@
     width: 50%;
 }
 
-.about .details-why {
-    margin: 0 auto 150px;
+.about .details-bis {
+    margin: 0 auto 20px;
     width: 50%;
+}
+
+.about .details-bis:last-child {
+    margin: 0 auto 150px;
+}
+
+.about li {
+    list-style: disc;
+}
+
+.about .details-bis span {
+    color: var(--primary-color);
+    font-weight: 500;
 }
 
 @media (max-width: 650px) {
@@ -72,7 +85,7 @@
         width: 90%;
     }
 
-    .about .details-why {
+    .about .details-bis {
         margin-top: 0;
         width: 90%;
     }

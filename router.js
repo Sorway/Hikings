@@ -74,7 +74,6 @@ exports.router =  (function () {
         });
     });
 
-
     // Redirections
 
     apiRouter.get('/github', function (req, res) {

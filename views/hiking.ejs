@@ -125,7 +125,7 @@
                     <div class="gallery">
                         <% videos.forEach(video => { %>
                             <div class="gallery-item">
-                                <video controls src="<%= videosPath %>/<%= video %>" muted></video>
+                                <video controls src="<%= videosPath %>/<%= video %>" muted controlsList="nodownload"></video>
                             </div>
                         <% }) %>
                     </div>

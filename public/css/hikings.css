@@ -59,10 +59,6 @@
     padding: 20px;
 }
 
-.description p {
-    color: var(--primary-color);
-}
-
 /* Difficulty color */
 #Difficile {
     color: #d63031;
@@ -70,12 +66,12 @@
 }
 
 #Moyenne {
-    color: #55efc4;
+    color: #3498db;
     font-weight: bold;
 }
 
 #Facile {
-    color: #0984e3;
+    color: #2ecc71;
     font-weight: bold;
 }
 

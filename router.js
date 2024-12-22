@@ -28,7 +28,18 @@ exports.router = (() => {
 
     apiRouter.get('/hikings', (req, res) => {
         const hikingsData = getHikings();
-        res.status(200).render('hikings', { hikings: hikingsData });
+        const { name, department, region } = req.query;
+
+        // Filtrage des randonnées
+        const filteredHikings = hikingsData.filter(hiking => {
+            const matchName = name ? hiking.name.toLowerCase().includes(name.toLowerCase()) : true;
+            const matchDepartment = department ? hiking.department?.toLowerCase().includes(department.toLowerCase()) : true;
+            const matchRegion = region ? hiking.region?.toLowerCase().includes(region.toLowerCase()) : true;
+
+            return matchName && matchDepartment && matchRegion;
+        });
+
+        res.status(200).render('hikings', { hikings: filteredHikings });
     });
 
     apiRouter.get('/hiking/:name', async (req, res) => {

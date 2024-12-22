@@ -29,26 +29,37 @@ exports.router =  (function () {
         const name = req.params.name;
         const hiking = getHikings().find(h => h.folder === name);
         const imagesPath = path.join(__dirname, 'public/images/hikings', name);
+        const videosPath = path.join(__dirname, 'public/videos/hikings', name);
 
         if (!hiking) {
             return res.redirect('/hikings');
         }
 
-        fs.readdir(imagesPath, (err, files) => {
+        fs.readdir(imagesPath, (err, imageFiles) => {
             if (err) {
                 return res.redirect('/hikings');
             }
 
-            const imageFiles = files.filter(file => /\.(jpg|jpeg|png|gif|webp)$/.test(file));
+            const filteredImages = imageFiles.filter(file => /\.(jpg|jpeg|png|gif|webp)$/.test(file));
 
-            res.status(200)
-                .render('hiking', {
-                    name: name,
-                    hiking: hiking,
-                    images: imageFiles,
-                    imagesPath: `/images/hikings/${name}`,
-                    map: `/gpx/${name}.gpx`
-                });
+            fs.readdir(videosPath, (err, videoFiles) => {
+                if (err) {
+                    videoFiles = [];
+                }
+
+                const filteredVideos = videoFiles.filter(file => /\.(mp4|webm|ogg)$/.test(file));
+
+                res.status(200)
+                    .render('hiking', {
+                        name: name,
+                        hiking: hiking,
+                        images: filteredImages,
+                        videos: filteredVideos,
+                        imagesPath: `/images/hikings/${name}`,
+                        videosPath: `/videos/hikings/${name}`,
+                        map: `/gpx/${name}.gpx`
+                    });
+            });
         });
     });
 

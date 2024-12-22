@@ -99,7 +99,8 @@ body {
     transform: scale(1.3);
 }
 
-.home img {
+.home img,
+.home video {
     z-index: 000;
     position: absolute;
     top: 0;

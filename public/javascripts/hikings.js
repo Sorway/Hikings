@@ -6,24 +6,33 @@ let hikingsData = []
 function loadHikings() {
     return new Promise((resolve, reject) => {
         const query = `
-            SELECT
-                h.*,
-                d.difficulty,
-                d.duration,
-                d.distance,
-                d.elevation_gain,
-                d.negative_gradient,
-                d.high_point,
-                d.low_point,
-                desctable.description
-            FROM
-                Hikings h
-            LEFT JOIN
-                \`Hikings-Data\` d ON h.id = d.id
-            INNER JOIN
-                \`Hikings-Description\` desctable ON h.id = desctable.id
-            ORDER BY
-                h.\`order\` ASC
+            SELECT h.*,
+                   IFNULL(CONCAT(t.name, ':', t.color), NULL) AS difficulty,
+                   d.duration,
+                   d.distance,
+                   d.elevation_gain,
+                   d.negative_gradient,
+                   d.high_point,
+                   d.low_point,
+                   desctable.description,
+                   CASE
+                       WHEN COUNT(t2.name) > 0 THEN GROUP_CONCAT(DISTINCT CONCAT(t2.name, ':', t2.color) SEPARATOR ', ')
+                       ELSE NULL
+                       END AS tags
+            FROM Hikings h
+                     LEFT JOIN
+                 \`Hikings-Data\` d ON h.id = d.id
+                     INNER JOIN
+                 \`Hikings-Description\` desctable ON h.id = desctable.id
+                     LEFT JOIN
+                 Tags t ON d.difficulty = t.id
+                     LEFT JOIN
+                 \`Hikings-Tags\` ht ON h.id = ht.hiking_id
+                     LEFT JOIN
+                 Tags t2 ON ht.tag_id = t2.id
+            GROUP BY h.id, difficulty, d.duration, d.distance, d.elevation_gain, d.negative_gradient, d.high_point,
+                     d.low_point, desctable.description
+            ORDER BY h.\`order\` ASC
         `;
 
         database.query(query, (err, results) => {

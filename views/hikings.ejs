@@ -63,12 +63,27 @@
                             <a href="/hiking/<%= hiking.folder %>">
                                 <img src="./images/hikings/<%= hiking.folder %>/<%= hiking.image %>" alt="<%= hiking.name %>">
                             </a>
+
                             <h3><%= hiking.name %></h3>
+
                             <p>
                                 📍
                                 <span style="color: var(--primary-color);"><%= hiking.city %></span>
                                 <% if (hiking.department) { %>, <span style="color: var(--text-color);"><%= hiking.department %></span><% } %>
                                 <% if (hiking.region) { %> (<span style="color: var(--secondary-color);"><%= hiking.region %></span>)<% } %>
+                            </p>
+
+                            <p class="hiking-tags">
+                                <% if (hiking.difficulty && hiking.difficulty !== "") { %>
+                                    <span class="tag" style="background-color: <%= hiking.difficulty.split(':')[1] %>"><%= hiking.difficulty.split(':')[0] %></span>
+                                <% } else { %>
+                                    <span class="tag">Pas une randonnée, juste un endroit spot photo</span>
+                                <% } %>
+                                <% if (hiking.tags) { %>
+                                    <% hiking.tags.split(', ').forEach(tag => { %>
+                                        <span class="tag" style="background-color: <%= tag.split(':')[1] %>"><%= tag.split(':')[0] %></span>
+                                    <% }); %>
+                                <% } %>
                             </p>
                         </div>
                     <% }) %>

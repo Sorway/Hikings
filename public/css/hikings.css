@@ -62,6 +62,31 @@
     color: #666;
 }
 
+.hikings .hiking-tags {
+    margin-top: 5px;
+}
+
+.hikings .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tag {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 /* Loading screen */
 .loading-screen {
     position: fixed;

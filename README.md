@@ -1,6 +1,6 @@
 # Hikings - Randonnées et aventures
 
-Bienvenue sur le dépôt GitHub de **Hikings**, un site web qui regroupe toutes les randonnées effectuées par Jonathan GP. Ce projet met à disposition des photos, des tracés GPX, ainsi que des informations sur les dénivelés, la difficulté et bien plus encore !
+Bienvenue sur le dépôt GitHub de **Hikings**, un site web qui regroupe toutes les randonnées effectuées par Jonathan. Ce projet met à disposition des photos, des tracés GPX, ainsi que des informations sur les dénivelés, la difficulté et bien plus encore !
 
 <p>
     <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="version">

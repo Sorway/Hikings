@@ -24,9 +24,8 @@
         <meta content="#01a3a4" data-react-helmet="true" name="theme-color"/>
 
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/hikings.css">
         <link rel="icon" type="image/png" href="/icons/logo.ico">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-        <link rel="stylesheet" href="/css/test.css">
     </head>
     <body>
         <!-- Navigation -->
@@ -48,20 +47,41 @@
             </div>
         </nav>
 
+        <!-- Loading -->
+        <div class="loading-screen">
+            <div class="spinner"></div>
+        </div>
+
         <!-- Hiking Section -->
         <section class="hikings">
-            <div id="sidebar">
-                <div id="hiking-list"></div>
-            </div>
+            <h1 class="title">Randonnées</h1>
 
-            <div id="map"></div>
+            <div class="container">
+                <div class="gallery">
+                    <% hikings.forEach(hiking => { %>
+                        <div class="gallery-item">
+                            <a href="/hiking/<%= hiking.folder %>">
+                                <img src="./images/hikings/<%= hiking.folder %>/<%= hiking.image %>" alt="<%= hiking.name %>">
+                            </a>
+
+                            <h3><%= hiking.name %></h3>
+
+                            <p>
+                                📍
+                                <span style="color: var(--primary-color);"><%= hiking.city %></span>
+                                <% if (hiking.department) { %>, <span style="color: var(--text-color);"><%= hiking.department %></span><% } %>
+                                <% if (hiking.region) { %> (<span style="color: var(--secondary-color);"><%= hiking.region %></span>)<% } %>
+                            </p>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
         </section>
 
         <%- include('partials/footer') %>
 
         <!-- Importation des scripts -->
         <script src="https://kit.fontawesome.com/629c3eb82b.js" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-        <script src="/javascripts/hikings-map.js" crossorigin="anonymous"></script>
+        <script src="/javascripts/loader.js" crossorigin="anonymous"></script>
     </body>
 </html>

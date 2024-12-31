@@ -31,6 +31,30 @@ exports.router = (() => {
         res.status(200).render('hikings', { hikings: hikingsData });
     });
 
+    //API
+    apiRouter.get('/api/v1/hikings', (req, res) => {
+        try {
+            const hikings = getHikings()
+                .filter(hiking => hiking.coordinates)
+                .map(hiking => {
+                    const [lat, lng] = hiking.coordinates.split(',').map(Number);
+                    return {
+                        name: hiking.name,
+                        coordinates: [lat, lng],
+                        city: hiking.city,
+                        department: hiking.department,
+                        region: hiking.region,
+                        folder: hiking.folder,
+                        image: hiking.image
+                    };
+                });
+            res.json(hikings);
+        } catch (err) {
+            console.error('Erreur lors de la récupération des données des randonnées :', err);
+            res.status(500).json({ error: 'Erreur serveur' });
+        }
+    });
+
     apiRouter.get('/hiking/:name', async (req, res) => {
         const name = req.params.name;
         const hiking = getHikings().find(h => h.folder === name);

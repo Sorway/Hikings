@@ -1,0 +1,263 @@
+.hiking {
+    margin-bottom: 120px;
+}
+
+.hiking .hiking-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 200px 0 200px;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hiking .hiking-image, .hiking-description {
+    flex-basis: 40%;
+    flex-grow: 1;
+}
+
+.hiking .hiking-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hiking .hiking-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hiking .hiking-description h2 {
+    margin-top: 0;
+}
+
+.hiking .tag {
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.hiking .tag-hiking {
+    background-color: #fdcb6e;
+}
+
+.hiking .tag-spot {
+    background-color: #6c5ce7;
+}
+
+#Difficile {
+    color: #d63031;
+    font-weight: bold;
+}
+
+#Moyenne {
+    color: #0984e3;
+    font-weight: bold;
+}
+
+#Facile {
+    color: #00b894;
+    font-weight: bold;
+}
+
+.hiking .hiking-description p {
+    font-size: 16px;
+    color: #555;
+}
+
+.hiking .hiking-description ul {
+    margin-top: 10px;
+}
+
+#map-container {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    margin: 20px 200px 0 200px;
+}
+
+/* Photos Section */
+.hiking .photos {
+    margin-top: 20px;
+}
+
+.hiking .container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.hiking .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.hiking .gallery-item {
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+    text-align: center;
+}
+
+.hiking .gallery-item img {
+    width: 100%;
+    max-height: 230px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 2px solid #666;
+}
+
+.hiking .gallery-item video {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 2px solid #666;
+}
+
+.hiking .gallery-item img:hover,
+.hiking .gallery-item video:hover {
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 2px var(--background-color), 0 0 16px var(--primary-color);
+    transform: scale(1.01);
+}
+
+.hiking .gallery-item h3 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.hiking .gallery-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Loading screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Animation spin */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Spinner container */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top: 6px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Modal */
+.hiking .image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.hiking .modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 20px;
+    padding: 5px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 2px var(--background-color), 0 0 16px var(--primary-color);
+}
+
+.hiking .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hiking .no-scroll {
+    overflow: hidden;
+}
+
+/* Media Queries pour les petits écrans */
+@media (max-width: 768px) {
+    .hiking .hiking-container {
+        margin: 20px 50px;
+    }
+
+    #map-container {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hikings .gallery-item {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .hiking .gallery-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hiking .gallery-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .hiking .hiking-container {
+        flex-direction: column;
+        margin: 20px 20px;
+    }
+
+    .hiking .hiking-image,
+    .hiking .hiking-description {
+        flex: 1 1 100%;
+        min-width: auto;
+    }
+
+    #map-container {
+        width: 90%;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

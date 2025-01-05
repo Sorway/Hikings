@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GFM36HGBE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4GFM36HGBE');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Randonnées</title>
+
+        <!-- Embed -->
+        <meta content="Randonnées" property="og:title"/>
+        <meta content="Découvrez les plus beaux paysages de randonnées en France." property="og:description"/>
+        <meta content="https://hikings.jonathan-gp.fr/" property="og:url"/>
+        <meta content="https://hikings.jonathan-gp.fr/images/pp.jpg" property="og:image"/>
+        <meta content="#01a3a4" data-react-helmet="true" name="theme-color"/>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="icon" type="image/png" href="/icons/logo.ico">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <link rel="stylesheet" href="/css/map.css">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="sticky">
+            <div class="nav-content">
+                <a class="logo">Randonnées</a>
+
+                <label for="check" class="checkbox">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <input type="checkbox" name="check" id="check">
+
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/about">À Propos</a></li>
+                    <li><a href="/map" class="active">Carte</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Map section -->
+        <section class="map">
+            <aside class="sidebar">
+                <h2>Itinéraires</h2>
+                <ul id="hike-list">
+                </ul>
+            </aside>
+
+            <div id="map"></div>
+
+            <!-- Bouton flottant pour basculer entre carte et liste -->
+            <button id="toggle-view-btn" class="toggle-view-btn"><i id="button-icon" class="fa-solid fa-map"></i> Carte</button>
+        </section>
+
+        <%- include('partials/footer') %>
+
+        <!-- Importation des scripts -->
+        <script src="https://kit.fontawesome.com/629c3eb82b.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <script src="/javascript/map.js" crossorigin="anonymous"></script>
+        <script src="/javascript/map-button.js" crossorigin="anonymous"></script>
+    </body>
+</html>

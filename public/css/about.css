@@ -1,0 +1,92 @@
+/* About section */
+.about-content {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .content {
+    width: 1280px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about .content img {
+    height: auto;
+    width: 600px;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.about .content .text {
+    width: 550px;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.about .content h1 {
+    color: var(--primary-color);
+    font-size: 35px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.about p {
+    color: var(--text-color);
+    font-size: 15px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+    text-align: justify;
+}
+
+.about p span {
+    color: var(--secondary-color);
+}
+
+.about .content .citation {
+    color: var(--text-color);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.about .details {
+    margin: 50px auto;
+    width: 50%;
+}
+
+.about .details-bis {
+    margin: 0 auto 20px;
+    width: 50%;
+}
+
+.about .details-bis:last-child {
+    margin: 0 auto 150px;
+}
+
+.about li {
+    list-style: disc;
+}
+
+.about .details-bis span {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+@media (max-width: 650px) {
+    .about .details {
+        margin-top: 0;
+        width: 90%;
+    }
+
+    .about .details-bis {
+        margin-top: 0;
+        width: 90%;
+    }
+}

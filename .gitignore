@@ -1,0 +1,7 @@
+/node_modules/
+/public/images/
+/public/videos/
+/public/gpx/
+/public/icons/
+/.env
+/sql/insert-data.sql

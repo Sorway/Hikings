@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GFM36HGBE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4GFM36HGBE');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Randonnées - À Propos</title>
+
+        <!-- Embed -->
+        <meta content="Randonnées - À Propos" property="og:title"/>
+        <meta content="Découvrez les plus beaux paysages de randonnées en France." property="og:description"/>
+        <meta content="https://hikings.jonathan-gp.fr/" property="og:url"/>
+        <meta content="https://hikings.jonathan-gp.fr/images/pp.jpg" property="og:image"/>
+        <meta content="#01a3a4" data-react-helmet="true" name="theme-color"/>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/about.css">
+        <link rel="icon" type="image/png" href="/icons/logo.ico">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="sticky">
+            <div class="nav-content">
+                <a class="logo">Randonnées</a>
+
+                <label for="check" class="checkbox">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <input type="checkbox" name="check" id="check">
+
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/about" class="active">À Propos</a></li>
+                    <li><a href="/map">Carte</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- About section -->
+        <section class="about">
+            <div class="about-content">
+                <div class="content">
+                    <img src="/images/pp.jpg" alt="photo de profil">
+
+                    <div class="text">
+                        <h1>Qui suis-je ?</h1>
+                        <p>Je m'appelle <span>Jonathan</span>, passionné par la randonnée, l'exploration et la photographie de paysages. Mon temps libre est largement consacré à parcourir des sentiers, gravir des sommets et immortaliser la beauté des panoramas qui s'offrent à moi. Des vastes étendues du Parc national du Mercantour aux mystères de la Vallée des Merveilles, en passant par les majestueuses Gorges du Verdon et les paysages envoûtants du Parc national des Calanques, chaque aventure est une nouvelle source d'émerveillement.</p>
+                        <p class="citation">"La nature offre des panoramas spectaculaires pour ceux qui prennent le temps de s'y aventurer."</p>
+                        <p>À travers ce site, je partage mes découvertes, mes itinéraires, et ma passion pour ces lieux d'exception.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details">
+                <p>Actuellement étudiant en Licence Professionnelle Administration et Sécurité des Systèmes et Réseaux, avec une spécialisation en Cloud et Cybersécurité, je suis originaire de la magnifique région Provence-Alpes-Côte d’Azur. Cette région, où mer et montagne se côtoient harmonieusement, de l’Estérel aux criques des Calanques, est une source d’inspiration inépuisable pour mes aventures.</p>
+            </div>
+
+            <h1 class="title">Pourquoi un site internet ?</h1>
+
+            <div class="details-bis">
+                <p>Initialement, je partageais mes photos sur Instagram, mais la compression appliquée par ce réseau social altérait la qualité de mes clichés. Bien que je n’utilise pas d’appareil photo professionnel, mon Samsung Galaxy S22 me permet de capturer des images en 4K qui révèlent toute la richesse des paysages que j’explore. Pour partager pleinement mes aventures et mes photos avec mes proches, j’ai décidé de créer ce site internet, un espace dédié à la découverte et à l’évasion.</p>
+            </div>
+
+            <h1 class="title">Matériels</h1>
+
+            <div class="details-bis">
+                <p>Pour capturer la beauté des paysages que j'explore, j'utilise du matériel accessible mais performant, idéal pour immortaliser mes aventures avec une qualité optimale :</p>
+                <ul>
+                    <li>
+                        <strong>Photo :</strong> Mon fidèle <span>Samsung Galaxy S22</span>, équipé d’un appareil photo puissant, me permet de réaliser des clichés détaillés et des vidéos en 4K, parfaits pour mettre en valeur la richesse des panoramas que je découvre. Sa polyvalence et sa légèreté en font un compagnon idéal lors de mes randonnées.
+                    </li>
+                    <li>
+                        <strong>Drone :</strong> Le <span>DJI Mini 4 Pro</span>, compact et facile à transporter, m’accompagne dans mes explorations aériennes. Grâce à ses capacités impressionnantes, il m’offre des perspectives uniques et des prises de vue spectaculaires, capturant la nature sous des angles que l’on ne peut voir autrement.
+                    </li>
+                </ul>
+                <br>
+                <p>Avec ce matériel, je peux partager des images et des vidéos qui retranscrivent fidèlement l’émotion de mes aventures et la splendeur des lieux que je visite.</p>
+            </div>
+        </section>
+
+        <%- include('partials/footer') %>
+
+        <!-- Importation des scripts -->
+        <script src="https://kit.fontawesome.com/629c3eb82b.js" crossorigin="anonymous"></script>
+    </body>
+</html>

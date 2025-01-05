@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GFM36HGBE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4GFM36HGBE');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Randonnées</title>
+
+        <!-- Embed -->
+        <meta content="Randonnées" property="og:title"/>
+        <meta content="Découvrez les plus beaux paysages de randonnées en France." property="og:description"/>
+        <meta content="https://hikings.jonathan-gp.fr/" property="og:url"/>
+        <meta content="https://hikings.jonathan-gp.fr/images/pp.jpg" property="og:image"/>
+        <meta content="#01a3a4" data-react-helmet="true" name="theme-color"/>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="icon" type="image/png" href="/icons/logo.ico">
+        <link rel="stylesheet" href="/css/hiking.css">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="sticky">
+            <div class="nav-content">
+                <a class="logo">Randonnées</a>
+
+                <label for="check" class="checkbox">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <input type="checkbox" name="check" id="check">
+
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/about">À Propos</a></li>
+                    <li><a href="/map" class="active">Carte</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Loading -->
+        <div class="loading-screen">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Hikings section -->
+        <section class="hiking">
+            <div class="hiking-container">
+                <div class="hiking-image">
+                    <img src="<%= imagesPath %>/<%= spot.image %>" alt="<%= name %>>">
+                </div>
+                <div class="hiking-description">
+                    <h2><%= spot.name %> <span class="tag tag-spot">Spot Photo/Drone</span></h2>
+                    <p><%= spot.description %></p>
+                </div>
+            </div>
+
+            <h1 class="title photos">Photos</h1>
+
+            <div class="container">
+                <div class="gallery">
+                    <% images.forEach(image => { %>
+                        <div class="gallery-item">
+                            <img src="<%= imagesPath %>/<%= image %>" alt="<%= name %>" class="gallery-image">
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+
+            <!-- Modal pour afficher l'image en plein écran -->
+            <div class="image-modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="modal-img" alt="">
+            </div>
+
+            <% if (videos && videos.length > 0) { %>
+                <h1 class="title">Vidéos</h1>
+
+                <div class="container">
+                    <div class="gallery">
+                        <% videos.forEach(video => { %>
+                            <div class="gallery-item">
+                                <video controls src="<%= videosPath %>/<%= video %>" muted controlsList="nodownload"></video>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            <% } %>
+        </section>
+
+        <%- include('partials/footer') %>
+
+        <!-- Importation des scripts -->
+        <script src="https://kit.fontawesome.com/629c3eb82b.js" crossorigin="anonymous"></script>
+        <script src="/javascript/modal.js" crossorigin="anonymous"></script>
+        <script src="/javascript/loader.js" crossorigin="anonymous"></script>
+    </body>
+</html>

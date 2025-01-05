@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GFM36HGBE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4GFM36HGBE');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Randonnées - Accueil</title>
+
+        <!-- Embed -->
+        <meta content="Randonnées - Accueil" property="og:title"/>
+        <meta content="Découvrez les plus beaux paysages de randonnées en France." property="og:description"/>
+        <meta content="https://hikings.jonathan-gp.fr/" property="og:url"/>
+        <meta content="https://hikings.jonathan-gp.fr/images/pp.jpg" property="og:image"/>
+        <meta content="#01a3a4" data-react-helmet="true" name="theme-color"/>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="icon" type="image/png" href="/icons/logo.ico">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-content">
+                <a class="logo">Randonnées</a>
+
+                <label for="check" class="checkbox">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <input type="checkbox" name="check" id="check">
+
+                <ul>
+                    <li><a href="/" class="active">Accueil</a></li>
+                    <li><a href="/about">À Propos</a></li>
+                    <li><a href="/map">Carte</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="home">
+            <!-- Carousel des images -->
+            <div class="slider">
+                <% showcases.forEach((showcase, index) => { %>
+                    <img class="images-slide <%= index === 0 ? 'active' : '' %>" src="<%= showcase.image %>" alt="<%= showcase.title %>">
+                <% }) %>
+            </div>
+
+            <!-- Contenu dynamique -->
+            <% showcases.forEach((showcase, index) => { %>
+                <div class="content <%= index === 0 ? 'active' : '' %>">
+                    <h1><%= showcase.title %><br><span><%= showcase.subtitle %></span></h1>
+                    <p><%= showcase.description %></p>
+                    <a href="<%= showcase.url %>">Découvrir</a>
+                </div>
+            <% }) %>
+
+            <!-- Icônes médias sociaux -->
+            <div class="media-icons">
+                <a href="/github" target="_blank"><i class="fab fa-github" aria-label="Github"></i></a>
+                <a href="/tiktok" target="_blank"><i class="fab fa-tiktok" aria-label="TikTok"></i></a>
+            </div>
+
+            <!-- Navigation du slider -->
+            <div class="slider-navigation">
+                <% showcases.forEach((showcase, index) => { %>
+                    <div class="nav-btn <%= index === 0 ? 'active' : '' %>"></div>
+                <% }) %>
+            </div>
+        </section>
+
+        <!-- Importation des scripts -->
+        <script src="https://kit.fontawesome.com/629c3eb82b.js" crossorigin="anonymous"></script>
+        <script src="/javascript/navigation.js" crossorigin="anonymous"></script>
+        <script src="/javascript/slider.js" crossorigin="anonymous"></script>
+    </body>
+</html>

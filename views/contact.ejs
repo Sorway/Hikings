@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GFM36HGBE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4GFM36HGBE');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Randonnées - Contact</title>
+
+        <!-- Embed -->
+        <meta content="Randonnées - Contact" property="og:title"/>
+        <meta content="Découvrez les plus beaux paysages de randonnées en France." property="og:description"/>
+        <meta content="https://hikings.jonathan-gp.fr/" property="og:url"/>
+        <meta content="https://hikings.jonathan-gp.fr/images/pp.jpg" property="og:image"/>
+        <meta content="#01a3a4" data-react-helmet="true" name="theme-color"/>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/contact.css">
+        <link rel="icon" type="image/png" href="/icons/logo.ico">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="sticky">
+            <div class="nav-content">
+                <a class="logo">Randonnées</a>
+
+                <label for="check" class="checkbox">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <input type="checkbox" name="check" id="check">
+
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/about">À Propos</a></li>
+                    <li><a href="/map">Carte</a></li>
+                    <li><a href="/contact" class="active">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Contact section -->
+        <section class="contact">
+            <div class="form-wrapper">
+                <h2>Contactez-Moi</h2>
+
+                <form action="/send-email" method="post">
+                    <div class="form-group">
+                        <label for="name">Nom<span class="star">*</span></label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Votre Nom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet <span class="optional">(Optionnel)</span></label>
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Sujet de votre demande">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adresse E-mail<span class="star">*</span></label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Votre adresse e-mail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message<span class="star">*</span></label>
+                        <textarea id="message" name="message" class="form-control" cols="30" rows="10" placeholder="Votre message" required></textarea>
+                    </div>
+
+                    <button class="submit-button">Envoyer</button>
+                </form>
+            </div>
+        </section>
+
+        <%- include('partials/footer') %>
+
+        <!-- Importation des scripts -->
+        <script src="https://kit.fontawesome.com/629c3eb82b.js" crossorigin="anonymous"></script>
+    </body>
+</html>

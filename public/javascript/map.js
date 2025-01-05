@@ -104,5 +104,5 @@ function updateSidebar() {
 map.on('moveend', updateSidebar);
 
 // Chargement des randonnées et spots
-loadMarkers('http://localhost/api/hikings', hikingIcon, 'hikings', 'tag-hiking', 'Randonnée');
-loadMarkers('http://localhost/api/spots', spotIcon, 'spots', 'tag-spot', 'Spot Photo');
+loadMarkers('https://hikings.jonathan-gp.fr/api/hikings', hikingIcon, 'hikings', 'tag-hiking', 'Randonnée');
+loadMarkers('https://hikings.jonathan-gp.fr/api/spots', spotIcon, 'spots', 'tag-spot', 'Spot Photo');

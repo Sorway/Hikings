@@ -54,7 +54,7 @@ routes.get('/hikings/:name', async (req, res) => {
             images: filteredImages,
             videos: filteredVideos,
             imagesPath: `/images/hikings/${name}`,
-            videosPath: `/videos/hikings/${name}`,
+            videosPath: `/videos/${name}`,
             map: `/gpx/${name}.gpx`,
         });
     } catch {

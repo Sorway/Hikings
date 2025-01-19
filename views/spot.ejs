@@ -81,20 +81,6 @@
                 <span class="close">&times;</span>
                 <img class="modal-content" id="modal-img" alt="">
             </div>
-
-            <% if (videos && videos.length > 0) { %>
-                <h1 class="title">Vidéos</h1>
-
-                <div class="container">
-                    <div class="gallery">
-                        <% videos.forEach(video => { %>
-                            <div class="gallery-item">
-                                <video controls src="<%= videosPath %>/<%= video %>" muted controlsList="nodownload"></video>
-                            </div>
-                        <% }) %>
-                    </div>
-                </div>
-            <% } %>
         </section>
 
         <%- include('partials/footer') %>

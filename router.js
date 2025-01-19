@@ -40,21 +40,17 @@ routes.get('/hikings/:name', async (req, res) => {
     if (!hiking) return res.redirect('/map');
 
     const imagesPath = path.join(__dirname, 'public/images/hikings', name);
-    const videosPath = path.join(__dirname, 'public/videos/hikings', name);
 
     try {
-        const [filteredImages, filteredVideos] = await Promise.all([
-            getFilteredFiles(imagesPath, IMAGE_EXTENSIONS),
-            getFilteredFiles(videosPath, VIDEO_EXTENSIONS),
+        const [filteredImages] = await Promise.all([
+            getFilteredFiles(imagesPath, IMAGE_EXTENSIONS)
         ]);
 
         res.status(200).render('hiking', {
             name,
             hiking,
             images: filteredImages,
-            videos: filteredVideos,
             imagesPath: `/images/hikings/${name}`,
-            videosPath: `/videos/hikings/${name}`,
             map: `/gpx/${name}.gpx`,
         });
     } catch {
@@ -70,21 +66,17 @@ routes.get('/spots/:name', async (req, res) => {
     if (!spot) return res.redirect('/map');
 
     const imagesPath = path.join(__dirname, 'public/images/spots', name);
-    const videosPath = path.join(__dirname, 'public/videos/spots', name);
 
     try {
         const [filteredImages, filteredVideos] = await Promise.all([
-            getFilteredFiles(imagesPath, IMAGE_EXTENSIONS),
-            getFilteredFiles(videosPath, VIDEO_EXTENSIONS),
+            getFilteredFiles(imagesPath, IMAGE_EXTENSIONS)
         ]);
 
         res.status(200).render('spot', {
             name,
             spot,
             images: filteredImages,
-            videos: filteredVideos,
             imagesPath: `/images/spots/${name}`,
-            videosPath: `/videos/spots/${name}`
         });
     } catch {
         res.redirect('/map');

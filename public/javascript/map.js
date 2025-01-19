@@ -15,7 +15,7 @@ const hikingIcon = L.icon({
 });
 
 const spotIcon = L.icon({
-    iconUrl: './images/markers/spots.png',
+    iconUrl: './images/markers/spots.webp',
     iconSize: [32, 32],
     popupAnchor: [0, -32]
 });
@@ -104,5 +104,5 @@ function updateSidebar() {
 map.on('moveend', updateSidebar);
 
 // Chargement des randonnées et spots
-loadMarkers('https://hikings.jonathan-gp.fr/api/hikings', hikingIcon, 'hikings', 'tag-hiking', 'Randonnée');
-loadMarkers('https://hikings.jonathan-gp.fr/api/spots', spotIcon, 'spots', 'tag-spots', 'Spot Photo');
+loadMarkers('http://localhost/api/hikings', hikingIcon, 'hikings', 'tag-hiking', 'Randonnée');
+loadMarkers('http://localhost/api/spots', spotIcon, 'spots', 'tag-spots', 'Spot Photo');
